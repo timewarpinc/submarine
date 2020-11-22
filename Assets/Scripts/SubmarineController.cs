@@ -9,7 +9,9 @@ public class SubmarineController : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private Vector3 movVec;
+    private Quaternion targetRotation;
     [SerializeField] private float playerSpeed = 2.0f;
+    [SerializeField] private float degreesPerSecond = 90f;
 
     private void Start()
     {
@@ -19,12 +21,22 @@ public class SubmarineController : MonoBehaviour
     {
         controller.Move(movVec * (Time.deltaTime * playerSpeed));
 
-        if (playerVelocity != Vector3.zero)
-        {
-            gameObject.transform.forward = movVec;
-        }
+        LookAtDirection(movVec);
 
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    void LookAtDirection(Vector3 moveDirection)
+    {
+        Vector3 xDirection = new Vector3(moveDirection.x,0 ,0);
+
+        if (xDirection.magnitude > 0)
+        {
+            targetRotation = Quaternion.LookRotation(xDirection);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation,
+                targetRotation, degreesPerSecond * Time.deltaTime);
+        }
     }
 
     public void OnMove(InputValue input)
