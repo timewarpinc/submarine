@@ -13,39 +13,40 @@ public class SubmarineController : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float degreesPerSecond = 90f;
 
+    private bool _rotating;
     private void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
+        targetRotation = transform.rotation;
     }
+
     private void FixedUpdate()
     {
-        if (LookAtDirection(movVec))
+        Vector3 xDirection = new Vector3(movVec.x,0 ,0);
+        bool direction = xDirection.magnitude > 0;
+
+        if (direction && _rotating)
+        {
+            targetRotation = Quaternion.LookRotation(xDirection);
+        }
+
+        if (direction && !NeedsRotating())
         {
             controller.Move(movVec * (Time.deltaTime * playerSpeed));
-
             controller.Move(playerVelocity * Time.deltaTime);
         }
 
+        if (_rotating)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation,
+                targetRotation, degreesPerSecond * Time.deltaTime); ;
+        }
+
     }
 
-    bool LookAtDirection(Vector3 moveDirection)
+    bool NeedsRotating()
     {
-        Vector3 xDirection = new Vector3(moveDirection.x,0 ,0);
-
-        if (xDirection.magnitude > 0)
-        {
-            targetRotation = Quaternion.LookRotation(xDirection);
-
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,
-                targetRotation, degreesPerSecond * Time.deltaTime);
-
-            return targetRotation == transform.rotation;
-        }
-        else
-        {
-            return true;
-        }
-
+        return transform.rotation != targetRotation;
     }
 
     public void OnMove(InputValue input)
@@ -53,5 +54,10 @@ public class SubmarineController : MonoBehaviour
         var inputVec = input.Get<Vector2>();
 
         movVec = new Vector3(inputVec.x, inputVec.y, 0);
+    }
+
+    public void OnRotate(InputValue input)
+    {
+        _rotating = input.isPressed;
     }
 }
