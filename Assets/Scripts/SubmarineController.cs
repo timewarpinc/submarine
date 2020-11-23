@@ -6,18 +6,21 @@ using UnityEngine.InputSystem;
 
 public class SubmarineController : MonoBehaviour
 {
-    private CharacterController controller;
     private Vector3 playerVelocity;
     private Vector3 movVec;
     private Quaternion targetRotation;
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float degreesPerSecond = 90f;
+    [SerializeField] private ForceMode forceMode = ForceMode.Force;
 
     private bool _rotating;
+
+    private Rigidbody _body;
+
     private void Start()
     {
-        controller = gameObject.AddComponent<CharacterController>();
         targetRotation = transform.rotation;
+        _body = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
@@ -32,8 +35,7 @@ public class SubmarineController : MonoBehaviour
 
         if (direction && !NeedsRotating())
         {
-            controller.Move(movVec * (Time.deltaTime * playerSpeed));
-            controller.Move(playerVelocity * Time.deltaTime);
+            _body.AddForce(movVec * (Time.deltaTime * playerSpeed), forceMode);
         }
 
         if (_rotating)

@@ -232,8 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe166b166ccc4eeda0469281727b454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
+  playerSpeed: 4
   degreesPerSecond: 90
+  forceMode: 2
 --- !u!114 &941163707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +613,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281927983480176011, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281927983480176011, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281927983480176011, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281927983480176011, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_Drag
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03aa3f3dde23a4715817fd9256efa507, type: 3}
