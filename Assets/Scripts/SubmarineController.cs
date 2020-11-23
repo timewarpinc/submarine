@@ -19,14 +19,16 @@ public class SubmarineController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        controller.Move(movVec * (Time.deltaTime * playerSpeed));
+        if (LookAtDirection(movVec))
+        {
+            controller.Move(movVec * (Time.deltaTime * playerSpeed));
 
-        LookAtDirection(movVec);
+            controller.Move(playerVelocity * Time.deltaTime);
+        }
 
-        controller.Move(playerVelocity * Time.deltaTime);
     }
 
-    void LookAtDirection(Vector3 moveDirection)
+    bool LookAtDirection(Vector3 moveDirection)
     {
         Vector3 xDirection = new Vector3(moveDirection.x,0 ,0);
 
@@ -36,7 +38,14 @@ public class SubmarineController : MonoBehaviour
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation,
                 targetRotation, degreesPerSecond * Time.deltaTime);
+
+            return targetRotation == transform.rotation;
         }
+        else
+        {
+            return true;
+        }
+
     }
 
     public void OnMove(InputValue input)
