@@ -1,4 +1,4 @@
-# submarine
+# Submarine
 
 Mini project to test collaboration in Unity via Github. Initial objectives: 
 
