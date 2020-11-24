@@ -730,6 +730,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Submarine
       objectReference: {fileID: 0}
+    - target: {fileID: 5641552870426735588, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_CustomSpotLightShadowCone
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641552870426735588, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_InnerSpotPercent
+      value: 72.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641552870426735588, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_ShapeRadius
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641552870426735588, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 5898630884109145464, guid: 03aa3f3dde23a4715817fd9256efa507,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -819,6 +839,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Drag
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380426845316387991, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_SpotAngle
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380426845316387991, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380426845316387991, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380426845316387991, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 63.661976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03aa3f3dde23a4715817fd9256efa507, type: 3}
@@ -1294,7 +1334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954167007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.4, y: 0, z: 0}
+  m_LocalPosition: {x: 4.4, y: 0, z: 1.341}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
