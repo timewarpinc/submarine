@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement style="height: 100%; width: 100%;">
+        <ui:VisualElement style="margin-top: 20%;">
+            <ui:Label text="Label" name="Message" style="-unity-text-align: upper-center; padding-top: 20px; padding-bottom: 20px; font-size: 50px; color: rgba(242, 245, 240, 255);" />
+        </ui:VisualElement>
+        <ui:VisualElement>
+            <ui:Button text="Try again" name="Retry" style="padding-bottom: 10px; padding-top: 10px; width: 300px; margin-left: auto; margin-right: auto;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

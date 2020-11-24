@@ -119,6 +119,20 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.unity.ui.builder": {
+      "version": "1.0.0-preview.9",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.ui.runtime": {
+      "version": "0.0.4-preview",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.visualeffectgraph": {
       "version": "7.5.1",
       "depth": 1,
