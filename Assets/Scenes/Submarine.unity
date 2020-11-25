@@ -220,7 +220,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8658
+  m_Name: pb_Mesh24804
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7395,9 +7395,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe166b166ccc4eeda0469281727b454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 4
+  forwardSpeed: 2
+  reverseSpeed: 0.6
+  ballastSpeed: 13
   degreesPerSecond: 90
-  forceMode: 2
+  forwardEngineForceMode: 2
+  reverseEngineForceMode: 2
+  ballastForceMode: 5
 --- !u!114 &941163707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14635,7 +14639,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19518
+  m_Name: pb_Mesh24782
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15314,7 +15318,12 @@ PrefabInstance:
     - target: {fileID: 7281927983480176011, guid: 03aa3f3dde23a4715817fd9256efa507,
         type: 3}
       propertyPath: m_Drag
-      value: 2
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281927983480176011, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8076120769715567862, guid: 03aa3f3dde23a4715817fd9256efa507,
         type: 3}

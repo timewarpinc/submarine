@@ -6,9 +6,14 @@ public class SubmarineController : MonoBehaviour
 {
     private Vector2 inputVector;
     private Quaternion targetRotation;
-    [SerializeField] private float playerSpeed = 2.0f;
+    [SerializeField] private float forwardSpeed = 2.0f;
+    [SerializeField] private float reverseSpeed = 0.5f;
+    [SerializeField] private float ballastSpeed = 0.5f;
     [SerializeField] private float degreesPerSecond = 90f;
-    [SerializeField] private ForceMode forceMode = ForceMode.Force;
+    [SerializeField] private ForceMode forwardEngineForceMode = ForceMode.Force;
+    [SerializeField] private ForceMode reverseEngineForceMode = ForceMode.Force;
+    [SerializeField] private ForceMode ballastForceMode = ForceMode.Force;
+
 
     private bool _rotating;
 
@@ -22,16 +27,31 @@ public class SubmarineController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 xDirection = new Vector3(inputVector.x,0 ,0);
+        var xDirection = new Vector3(inputVector.x,0 ,0);
 
-        if (xDirection.magnitude > 0 && _rotating)
+        var lookRotation = targetRotation;
+        if (xDirection.magnitude > 0)
         {
-            targetRotation = Quaternion.LookRotation(xDirection);
+            lookRotation = Quaternion.LookRotation(xDirection);
+            if (_rotating)
+            {
+                targetRotation = lookRotation;
+            }
         }
 
         if (inputVector.magnitude > 0 && !NeedsRotating())
         {
-            _body.AddForce(inputVector * (Time.deltaTime * playerSpeed), forceMode);
+            var speed = (lookRotation == targetRotation) ? forwardSpeed : reverseSpeed;
+            if (lookRotation == targetRotation) // facing forward
+            {
+                _body.AddForce(xDirection * (Time.deltaTime * forwardSpeed), forwardEngineForceMode);
+            }
+            else // reverse power
+            {
+                _body.AddForce(xDirection * (Time.deltaTime * reverseSpeed), reverseEngineForceMode);
+            }
+
+            _body.AddForce(new Vector3(0, inputVector.y, 0) * (Time.deltaTime * ballastSpeed), ballastForceMode);
         }
 
         if (_rotating)
