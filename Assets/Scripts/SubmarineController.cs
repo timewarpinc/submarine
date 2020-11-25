@@ -54,7 +54,7 @@ public class SubmarineController : MonoBehaviour
             _body.AddForce(new Vector3(0, inputVector.y, 0) * (Time.deltaTime * ballastSpeed), ballastForceMode);
         }
 
-        if (_rotating)
+        if (_rotating || (lookRotation != transform.rotation && xDirection.magnitude > 0))
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation,
                 targetRotation, degreesPerSecond * Time.deltaTime); ;
