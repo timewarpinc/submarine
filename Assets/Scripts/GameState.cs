@@ -1,31 +1,41 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private UnityEngine.UI.Text message;
     [SerializeField] private float pausedTimeScale = 0.5f;
     void Start()
     {
-        pausePanel = new GameObject();
+        if (pausePanel == null) { pausePanel = new GameObject(); }
         pausePanel.SetActive(false);
     }
 
 
     public void WinGame(GameObject cause)
     {
-        Debug.Log("Win");
-        PauseGame();
+        Debug.Log("You Win");
+        PauseGame("You Win!");
     }
 
     public void LoseGame(GameObject cause)
     {
         Debug.Log("lose");
-        PauseGame();
+        PauseGame("You Lose!");
     }
 
-    private void PauseGame()
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+    }
+
+    private void PauseGame(String text)
     {
         Time.timeScale = pausedTimeScale;
+        this.message.text = text;
         pausePanel.SetActive(true);
         //Disable scripts that still work while timescale is set to 0
     }
