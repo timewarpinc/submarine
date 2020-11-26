@@ -33954,6 +33954,11 @@ PrefabInstance:
       propertyPath: m_Tangents.Array.data[92].y
       value: 0.0000000065609744
       objectReference: {fileID: 0}
+    - target: {fileID: 5591516126940321004, guid: 03aa3f3dde23a4715817fd9256efa507,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5641552870426735588, guid: 03aa3f3dde23a4715817fd9256efa507,
         type: 3}
       propertyPath: m_CustomSpotLightShadowCone
