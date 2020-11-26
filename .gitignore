@@ -74,3 +74,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Pp]lugins/GitHub/Editor
 
 /ProjectSettings/Packages/com.unity.probuilder/Settings.json
+/Assets/Plugins/GitHub/
